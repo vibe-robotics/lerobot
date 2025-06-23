@@ -224,7 +224,7 @@ class GamepadController(InputController):
         if pygame.joystick.get_count() == 0:
             logging.error("No gamepad detected. Please connect a gamepad and try again.")
             self.running = False
-            return
+            raise RuntimeError("No gamepad detected. Please connect a gamepad and try again.")
 
         self.joystick = pygame.joystick.Joystick(0)
         self.joystick.init()
